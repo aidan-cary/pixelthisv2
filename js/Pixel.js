@@ -1118,7 +1118,7 @@ Pixel.Init = function() {
 			imgurImage.id = "blue";
 			imgurImage.height = 800;
 			imgurImage.width = 600;
-			imgurImage.link = "images/blue.png";
+			imgurImage.url = "images/blue.png";
 			Pixel.news.push("Error getting image from imgur, have a pretty blue image");
 		}).always(function() {
 			if(imgurResponse.responseJSON.data.length > 0) {
