@@ -1052,8 +1052,7 @@ Pixel.Init = function() {
 					}
 				}
 				while(index < 59 &&
-					(imgurImage.is_album ||
-					imgurImage.height < 200 ||
+					(imgurImage.height < 200 ||
 					imgurImage.width < 75 ||
 					nsfw || inHistory)) {
 					index++;
@@ -1093,8 +1092,7 @@ Pixel.Init = function() {
 					}
 				}
 				while(index < 59 &&
-					(imgurImage.is_album ||
-					imgurImage.height < 200 ||
+					(imgurImage.height < 200 ||
 					imgurImage.width < 75 ||
 					nsfw || inHistory)) {
 					index++;
