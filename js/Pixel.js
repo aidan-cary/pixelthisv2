@@ -1010,7 +1010,12 @@ Pixel.Init = function() {
 		
 		var url = '';
 		var searchTerm = $('#searchTerm').val();
-		if(searchTerm === "" || page > 10) {
+		if(nsfw) {
+			url = 'https://api.redgifs.com/v1/gfycats/search?search_text='+searchTerm;
+
+		}
+		
+		else if(searchTerm === "" || page > 10) {
 			if(page === 11) {
 				Pixel.news.push("Error getting image from search terms, using random gallery");
 			}
