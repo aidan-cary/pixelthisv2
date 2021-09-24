@@ -1076,7 +1076,7 @@ Pixel.Init = function() {
 				Pixel.news.push("No data found, bad search term or subreddit. Pulling from random");
 				Pixel.GetNewImage(99);
 			} else {
-				imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls[0];
+				imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls.mp4;
 				console.log(imgurResponse.responseJSON.gfycats[index].content_urls.mp4)
 				var nsfw = false;
 				var inHistory = false;
@@ -1097,7 +1097,7 @@ Pixel.Init = function() {
 					imgurImage.width < 75 ||
 					nsfw || inHistory)) {
 					index++;
-					imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls[0];
+					imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls.mp4;
 					inHistory = false;
 					//If NSFW is checked, don't care about NSFW tag so keep it false
 					if(!$('#nsfwCheckbox').prop('checked')) {
