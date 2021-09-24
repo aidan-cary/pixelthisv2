@@ -1077,7 +1077,7 @@ Pixel.Init = function() {
 				Pixel.news.push("No data found, bad search term or subreddit. Pulling from random");
 				Pixel.GetNewImage(99);
 			} else {
-				imgurImage = imgurResponse.responseJSON.gfycats[index];
+				imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls[0];
 				var nsfw = false;
 				var inHistory = false;
 				if(index < 59) {
@@ -1158,7 +1158,7 @@ Pixel.Init = function() {
 					Pixel.imageHeight = Math.floor(Pixel.imageHeight * heightPct);
 				}
 			}
-			$('#picture').css('background-image','url("'+image.link+'")');
+			$('#picture').css('background-image','url("'+image.url+'")');
 		}
 		$('#gameContainer').css('width',Pixel.imageWidth+'px');
 		$('#gameContainer').css('height',Pixel.imageHeight+'px');
