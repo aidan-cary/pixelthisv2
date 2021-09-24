@@ -1041,7 +1041,9 @@ Pixel.Init = function() {
 				var inHistory = false;
 				if(index < 59) {
 					//If NSFW is checked, don't care about NSFW tag so keep it false
-
+					if(!$('#nsfwCheckbox').prop('checked')) {
+						nsfw = true;
+					}
 					for(var i=0; i!==Pixel.State.history.length; i+=1) {
 						if(Pixel.State.history[i].id === imgurImage.id) {
 							inHistory = true;
@@ -1058,7 +1060,9 @@ Pixel.Init = function() {
 					imgurImage = imgurResponse.responseJSON.data[index];
 					inHistory = false;
 					//If NSFW is checked, don't care about NSFW tag so keep it false
-
+					if(!$('#nsfwCheckbox').prop('checked')) {
+						nsfw = true;
+					}
 					for(var j=0; j!==Pixel.State.history.length; j+=1) {
 						if(Pixel.State.history[j].id === imgurImage.id) {
 							inHistory = true;
@@ -1077,7 +1081,10 @@ Pixel.Init = function() {
 				var nsfw = false;
 				var inHistory = false;
 				if(index < 59) {
-
+					//If NSFW is checked, don't care about NSFW tag so keep it false
+					if(!$('#nsfwCheckbox').prop('checked')) {
+						nsfw = true;
+					}
 					for(var i=0; i!==Pixel.State.history.length; i+=1) {
 						if(Pixel.State.history[i].id === imgurImage.id) {
 							inHistory = true;
@@ -1095,7 +1102,8 @@ Pixel.Init = function() {
 					inHistory = false;
 					//If NSFW is checked, don't care about NSFW tag so keep it false
 					if(!$('#nsfwCheckbox').prop('checked')) {
-
+						nsfw = true;
+					}
 					for(var j=0; j!==Pixel.State.history.length; j+=1) {
 						if(Pixel.State.history[j].id === imgurImage.id) {
 							inHistory = true;
