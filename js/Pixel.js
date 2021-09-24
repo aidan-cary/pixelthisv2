@@ -92,7 +92,7 @@ Pixel.Init = function() {
 			Pixel.State.color = 0;
 			Pixel.State.partyPixelPopLvl = 1;
 			Pixel.State.autoNextImage = false;
-			Pixel.State.nsfwToggle = false;
+			Pixel.State.nsfwToggle = true;
 			Pixel.State.searchTerm = "";
 			Pixel.State.bombReady = false;
 			Pixel.State.shortFormats = true;
@@ -1031,7 +1031,8 @@ Pixel.Init = function() {
 		//Call the imgur API to get a random image
 		var imgurResponse = $.get(url
 		).done(function() {
-			if(imgurResponse.responseJSON.data.length === 0) {
+			if(Pixel.State.nsfwToggle==false)
+			 {if(imgurResponse.responseJSON.data.length === 0) {
 				Pixel.news.push("No data found, bad search term or subreddit. Pulling from random");
 				Pixel.GetNewImage(99);
 			} else {
@@ -1070,6 +1071,48 @@ Pixel.Init = function() {
 					}
 				}
 			}
+		}
+		if(Pixel.State.nsfwToggle==true)
+			 {if(imgurResponse.responseJSON.gfycats.length === 0) {
+				Pixel.news.push("No data found, bad search term or subreddit. Pulling from random");
+				Pixel.GetNewImage(99);
+			} else {
+				imgurImage = imgurResponse.responseJSON.gfycats[index];
+				var nsfw = false;
+				var inHistory = false;
+				if(index < 59) {
+					//If NSFW is checked, don't care about NSFW tag so keep it false
+					if(!$('#nsfwCheckbox').prop('checked')) {
+						nsfw = imgurImage.nsfw;
+					}
+					for(var i=0; i!==Pixel.State.history.length; i+=1) {
+						if(Pixel.State.history[i].id === imgurImage.id) {
+							inHistory = true;
+							break;
+						}
+					}
+				}
+				while(index < 59 &&
+					(imgurImage.is_album ||
+					imgurImage.height < 200 ||
+					imgurImage.width < 75 ||
+					nsfw || inHistory)) {
+					index++;
+					imgurImage = imgurResponse.responseJSON.data[index];
+					inHistory = false;
+					//If NSFW is checked, don't care about NSFW tag so keep it false
+					if(!$('#nsfwCheckbox').prop('checked')) {
+						nsfw = imgurImage.nsfw;
+					}
+					for(var j=0; j!==Pixel.State.history.length; j+=1) {
+						if(Pixel.State.history[j].id === imgurImage.id) {
+							inHistory = true;
+							break;
+						}
+					}
+				}
+			}
+		}
 		}).fail(function() {
 			//If we failed to get an image, just
 			imgurImage.id = "blue";
