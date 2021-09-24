@@ -1098,7 +1098,7 @@ Pixel.Init = function() {
 					imgurImage.width < 75 ||
 					nsfw || inHistory)) {
 					index++;
-					imgurImage = imgurResponse.responseJSON.data[index];
+					imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls[0];
 					inHistory = false;
 					//If NSFW is checked, don't care about NSFW tag so keep it false
 					if(!$('#nsfwCheckbox').prop('checked')) {
