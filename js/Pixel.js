@@ -1120,7 +1120,7 @@ Pixel.Init = function() {
 			imgurImage.url = "images/blue.png";
 			Pixel.news.push("Error getting image from imgur, have a pretty blue image");
 		}).always(function() {
-			if(imgurResponse.responseJSON.data.length > 0) {
+			if(imgurResponse.responseJSON.gfycats.length > 0) {
 				if(index === 59) {
 					//If we hit the max items on a page, try again
 					Pixel.GetNewImage(page+1);
