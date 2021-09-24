@@ -1092,24 +1092,7 @@ Pixel.Init = function() {
 						}
 					}
 				}
-				while(index < 59 &&
-					(imgurImage.height < 200 ||
-					imgurImage.width < 75 ||
-					nsfw || inHistory)) {
-					index++;
-					imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls.mp4;
-					inHistory = false;
-					//If NSFW is checked, don't care about NSFW tag so keep it false
-					if(!$('#nsfwCheckbox').prop('checked')) {
-						nsfw = true;
-					}
-					for(var j=0; j!==Pixel.State.history.length; j+=1) {
-						if(Pixel.State.history[j].id === imgurImage.id) {
-							inHistory = true;
-							break;
-						}
-					}
-				}
+
 			}
 		}
 		}).fail(function() {
