@@ -1010,7 +1010,7 @@ Pixel.Init = function() {
 		
 		var url = '';
 		var searchTerm = $('#searchTerm').val();
-		if(nsfwToggle==true) {
+		if(Pixel.State.nsfwToggle==true) {
 			url = 'https://api.redgifs.com/v1/gfycats/search?search_text='+searchTerm;
 
 		}
@@ -1151,7 +1151,7 @@ Pixel.Init = function() {
 	    if(image.id === "blue") {
 	        return "Blue Image";
 	    } 
-		else if(nsfwToggle == true) {
+		else if(Pixel.State.nsfwToggle == true) {
 			return "<a href='https://api.redgifs.com/v1/gfycats/" + image.id + "</a>";
 		}
 		else {
