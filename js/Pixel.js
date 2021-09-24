@@ -1077,7 +1077,7 @@ Pixel.Init = function() {
 				Pixel.GetNewImage(99);
 			} else {
 				imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls[0];
-				console.log(imgurResponse.responseJSON.gfycats[index].content_urls)
+				console.log(imgurResponse.responseJSON.gfycats[index].content_urls.mp4)
 				var nsfw = false;
 				var inHistory = false;
 				if(index < 59) {
