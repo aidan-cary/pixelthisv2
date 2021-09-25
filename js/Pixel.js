@@ -76,7 +76,7 @@ Pixel.Init = function() {
 			//State Variables that will be saved
 			//---------------------------
 			Pixel.State.firstPlay = Pixel.time;
-			Pixel.State.numPixels = 100000;
+			Pixel.State.numPixels = 10000000;
 			Pixel.State.pixelsThisImage = 0;
 			Pixel.State.manualBombsThisImage = 0;
 			Pixel.State.lastRandX = 0;
