@@ -1076,7 +1076,7 @@ Pixel.Init = function() {
 				Pixel.news.push("No data found, bad search term or subreddit. Pulling from random");
 				Pixel.GetNewImage(99);
 			} else {
-				imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls.mp4;
+				imgurImage = imgurResponse.responseJSON.gfycats[index].content_urls["100pxGif"];
 				console.log(imgurResponse.responseJSON.gfycats[index].content_urls)
 				var nsfw = false;
 				var inHistory = false;
