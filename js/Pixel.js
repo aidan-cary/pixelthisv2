@@ -1237,7 +1237,6 @@ Pixel.Init = function() {
 				}
 				
 				$('#autoFinishCheckbox').prop('checked', Pixel.State.autoFinishCheckbox);
-				$('#nsfwCheckbox').prop('checked', Pixel.State.nsfwToggle);
 				$('#searchTerm').val(Pixel.State.searchTerm);
 			} else {
 				Pixel.news.push(" ");
@@ -1287,7 +1286,6 @@ Pixel.Init = function() {
 	Pixel.SaveGame = function(saveCanvas) {
 		// Grab some user input items
 		Pixel.State.autoFinishCheckbox = $('#autoFinishCheckbox').prop('checked');
-		Pixel.State.nsfwToggle = $('#nsfwCheckbox').prop('checked');
 		Pixel.State.searchTerm = $('#searchTerm').val();
 		
 		Pixel.UpdateCheck();
